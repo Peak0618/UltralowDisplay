@@ -1,0 +1,910 @@
+
+
+
+78K0R Linker W1.70                            Date: 9 Nov 2016 Page:   1
+
+Command:   -yD:\Program Files (x86)\Renesas Electronics\CubeSuite+\Devic
+           e\RL78\Devicefile -_msgoff -dpfdl_sample_linker_file.dr -oDef
+           aultBuild\medical_disp43.lmf -gi00000000000000000000h -go04h,
+           3E00h,512 -gb0FFFFE8H -mi0 -s -pDefaultBuild\medical_disp43.m
+           ap D:\Program Files (x86)\Renesas Electronics\CubeSuite+\CA78
+           K0R\V1.60\lib78k0r\s0rll.rel DefaultBuild\r_main.rel DefaultB
+           uild\r_systeminit.rel DefaultBuild\r_cg_cgc.rel DefaultBuild\
+           r_cg_cgc_user.rel DefaultBuild\r_cg_port.rel DefaultBuild\r_c
+           g_port_user.rel DefaultBuild\r_cg_intc.rel DefaultBuild\r_cg_
+           intc_user.rel DefaultBuild\r_cg_serial.rel DefaultBuild\r_cg_
+           serial_user.rel DefaultBuild\r_cg_adc.rel DefaultBuild\r_cg_a
+           dc_user.rel DefaultBuild\r_cg_timer.rel DefaultBuild\r_cg_tim
+           er_user.rel DefaultBuild\r_cg_wdt.rel DefaultBuild\r_cg_wdt_u
+           ser.rel DefaultBuild\r_cg_pclbuz.rel DefaultBuild\r_cg_pclbuz
+           _user.rel DefaultBuild\h_com.rel DefaultBuild\h_main.rel Defa
+           ultBuild\m_card.rel DefaultBuild\r_pfdl.rel DefaultBuild\m_pf
+           dl.rel DefaultBuild\m_usb.rel DefaultBuild\m_test_mode.rel -b
+           pfdl.lib -bcl0ram.lib -bcl0rm.lib -bcl0rmf.lib -iD:\Program F
+           iles (x86)\Renesas Electronics\CubeSuite+\CA78K0R\V1.60\lib78
+           k0r
+Para-file:
+Out-file:  DefaultBuild\medical_disp43.lmf
+Map-file:  DefaultBuild\medical_disp43.map
+Direc-file:pfdl_sample_linker_file.dr
+Directive: 
+           ;============================================================
+           =====================================
+           ; Project      = Data Flash Library, MF3 single voltage flash
+           
+           ; Module       = pfdl_linker_file.dr
+           ; Device:      = RL78/G12,G13,G14
+           ; Version      = V1.10
+           ; Date         = 21.03.2012
+           ;============================================================
+           =====================================
+           ;                                  COPYRIGHT
+           ;============================================================
+           =====================================
+           ; Copyright (c) 2011-2012 by Renesas Electronics Europe GmbH,
+            a company of the Renesas Electronics
+           ; Corporation. All rights reserved.
+           ;============================================================
+           =====================================
+           ; Purpose:
+           ;              linker sample file
+           ;
+           ;============================================================
+           =====================================
+           ;
+           ; Warranty Disclaimer
+           ;
+           ; Because the Product(s) is licensed free of charge, there is
+            no warranty of any kind whatsoever
+           ; and expressly disclaimed and excluded by Renesas, either ex
+           pressed or implied, including but
+           ; not limited to those for non-infringement of intellectual p
+           roperty, merchantability and/or
+           ; fitness for the particular purpose.
+           ; Renesas shall not have any obligation to maintain, service 
+           or provide bug fixes for the
+           ; supplied Product(s) and/or the Application.
+           ;
+           ; Each User is solely responsible for determining the appropr
+           iateness of using the Product(s)
+           ; and assumes all risks associated with its exercise of right
+           s under this Agreement, including,
+           ; but not limited to the risks and costs of program errors, c
+           ompliance with applicable laws,
+           ; damage to or loss of data, programs or equipment, and unava
+           ilability or interruption of
+           ; operations.
+           ;
+           ; Limitation of Liability
+           ;
+           ; In no event shall Renesas be liable to the User for any inc
+           idental, consequential, indirect,
+           ; or punitive damage (including but not limited to lost profi
+           ts) regardless of whether such
+           ; liability is based on breach of contract, tort, strict liab
+           ility, breach of warranties,
+           ; failure of essential purpose or otherwise and even if advis
+           ed of the possibility of such
+           ; damages. Renesas shall not be liable for any services or pr
+           oducts provided by third party
+           ; vendors, developers or consultants identified or referred t
+           o the User by Renesas in
+           ; connection with the Product(s) and/or the Application.
+           ;
+           ;============================================================
+           =====================================
+           
+           
+           ; -----------------------------------------------------------
+           
+           ; Redefined default data segment RAM
+           ; -----------------------------------------------------------
+           
+           
+           MEMORY RAM : ( 0FF700H , 00720H )
+           MEMORY RAM_SADDR : ( 0FFE20H , 000C0H )
+           
+           ; -----------------------------------------------------------
+           
+           ; Merge PFDL_COD segment ROM memory area
+           ; -----------------------------------------------------------
+           
+           MERGE PFDL_COD:=ROM
+           
+           
+           
+           
+
+
+*** Link information ***
+
+    61 output segment(s)
+ 2536H byte(s) real data
+  3448 symbol(s) defined
+
+
+*** Memory map ***
+
+
+  SPACE=REGULAR
+
+  MEMORY=ROM
+  BASE ADDRESS=00000H   SIZE=04000H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@VECT00                     00000H    00002H  CSEG AT
+                  @@VECT00 @cstart    00000H    00002H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  @cstart    00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_main     00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_systeminit
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_cgc   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_cgc_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_port
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_port_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_intc
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_intc_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_serial
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_serial_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_adc   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_adc_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_timer
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_timer_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_wdt   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_wdt_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_pclbuz
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_pclbuz_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  h_com      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  h_main     00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  m_card     00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_pfdl     00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  m_pfdl     00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  m_usb      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  m_test_mode
+                                      00002H    00000H
+         @@RLINIT                     00002H    00000H  CSEG UNIT64KP
+                  @@RLINIT @cstart    00002H    00000H
+                  @@RLINIT r_main     00002H    00000H
+                  @@RLINIT r_systeminit
+                                      00002H    00000H
+                  @@RLINIT r_cg_cgc   00002H    00000H
+                  @@RLINIT r_cg_cgc_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_port
+                                      00002H    00000H
+                  @@RLINIT r_cg_port_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_intc
+                                      00002H    00000H
+                  @@RLINIT r_cg_intc_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_serial
+                                      00002H    00000H
+                  @@RLINIT r_cg_serial_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_adc   00002H    00000H
+                  @@RLINIT r_cg_adc_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_timer
+                                      00002H    00000H
+                  @@RLINIT r_cg_timer_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_wdt   00002H    00000H
+                  @@RLINIT r_cg_wdt_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_pclbuz
+                                      00002H    00000H
+                  @@RLINIT r_cg_pclbuz_user
+                                      00002H    00000H
+                  @@RLINIT h_com      00002H    00000H
+                  @@RLINIT h_main     00002H    00000H
+                  @@RLINIT m_card     00002H    00000H
+                  @@RLINIT r_pfdl     00002H    00000H
+                  @@RLINIT m_pfdl     00002H    00000H
+                  @@RLINIT m_usb      00002H    00000H
+                  @@RLINIT m_test_mode
+                                      00002H    00000H
+                  @@RLINIT @rom       00002H    00000H
+         @@R_INIS                     00002H    00000H  CSEG UNIT64KP
+                  @@R_INIS @cstart    00002H    00000H
+                  @@R_INIS r_main     00002H    00000H
+                  @@R_INIS r_systeminit
+                                      00002H    00000H
+                  @@R_INIS r_cg_cgc   00002H    00000H
+                  @@R_INIS r_cg_cgc_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_port
+                                      00002H    00000H
+                  @@R_INIS r_cg_port_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_intc
+                                      00002H    00000H
+                  @@R_INIS r_cg_intc_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_serial
+                                      00002H    00000H
+                  @@R_INIS r_cg_serial_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_adc   00002H    00000H
+                  @@R_INIS r_cg_adc_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_timer
+                                      00002H    00000H
+                  @@R_INIS r_cg_timer_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_wdt   00002H    00000H
+                  @@R_INIS r_cg_wdt_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_pclbuz
+                                      00002H    00000H
+                  @@R_INIS r_cg_pclbuz_user
+                                      00002H    00000H
+                  @@R_INIS h_com      00002H    00000H
+                  @@R_INIS h_main     00002H    00000H
+                  @@R_INIS m_card     00002H    00000H
+                  @@R_INIS r_pfdl     00002H    00000H
+                  @@R_INIS m_pfdl     00002H    00000H
+                  @@R_INIS m_usb      00002H    00000H
+                  @@R_INIS m_test_mode
+                                      00002H    00000H
+                  @@R_INIS @rom       00002H    00000H
+         @@CALT                       00002H    00000H  CSEG
+                  @@CALT   @cstart    00002H    00000H
+                  @@CALT   r_main     00002H    00000H
+                  @@CALT   r_systeminit
+                                      00002H    00000H
+                  @@CALT   r_cg_cgc   00002H    00000H
+                  @@CALT   r_cg_cgc_user
+                                      00002H    00000H
+                  @@CALT   r_cg_port
+                                      00002H    00000H
+                  @@CALT   r_cg_port_user
+                                      00002H    00000H
+                  @@CALT   r_cg_intc
+                                      00002H    00000H
+                  @@CALT   r_cg_intc_user
+                                      00002H    00000H
+                  @@CALT   r_cg_serial
+                                      00002H    00000H
+                  @@CALT   r_cg_serial_user
+                                      00002H    00000H
+                  @@CALT   r_cg_adc   00002H    00000H
+                  @@CALT   r_cg_adc_user
+                                      00002H    00000H
+                  @@CALT   r_cg_timer
+                                      00002H    00000H
+                  @@CALT   r_cg_timer_user
+                                      00002H    00000H
+                  @@CALT   r_cg_wdt   00002H    00000H
+                  @@CALT   r_cg_wdt_user
+                                      00002H    00000H
+                  @@CALT   r_cg_pclbuz
+                                      00002H    00000H
+                  @@CALT   r_cg_pclbuz_user
+                                      00002H    00000H
+                  @@CALT   h_com      00002H    00000H
+                  @@CALT   h_main     00002H    00000H
+                  @@CALT   m_card     00002H    00000H
+                  @@CALT   r_pfdl     00002H    00000H
+                  @@CALT   m_pfdl     00002H    00000H
+                  @@CALT   m_usb      00002H    00000H
+                  @@CALT   m_test_mode
+                                      00002H    00000H
+         ??NMIROM                     00002H    00002H  CSEG
+         @@VECT04                     00004H    00002H  CSEG AT
+                  @@VECT04 r_cg_wdt_user
+                                      00004H    00002H
+* gap *                               00006H    00002H
+         @@VECT08                     00008H    00004H  CSEG AT
+                  @@VECT08 r_cg_intc_user
+                                      00008H    00004H
+* gap *                               0000CH    00006H
+         @@VECT12                     00012H    00002H  CSEG AT
+                  @@VECT12 r_cg_intc_user
+                                      00012H    00002H
+         @@VECT14                     00014H    00004H  CSEG AT
+                  @@VECT14 r_cg_serial_user
+                                      00014H    00004H
+* gap *                               00018H    00006H
+         @@VECT1E                     0001EH    00004H  CSEG AT
+                  @@VECT1E r_cg_serial_user
+                                      0001EH    00004H
+* gap *                               00022H    00002H
+         @@VECT24                     00024H    00004H  CSEG AT
+                  @@VECT24 r_cg_serial_user
+                                      00024H    00004H
+* gap *                               00028H    00008H
+         @@VECT30                     00030H    00002H  CSEG AT
+                  @@VECT30 r_cg_timer_user
+                                      00030H    00002H
+* gap *                               00032H    00002H
+         @@VECT34                     00034H    00002H  CSEG AT
+                  @@VECT34 r_cg_adc_user
+                                      00034H    00002H
+* gap *                               00036H    00010H
+         @@VECT46                     00046H    00004H  CSEG AT
+                  @@VECT46 r_cg_timer_user
+                                      00046H    00004H
+         @@R_INIT                     0004AH    00030H  CSEG UNIT64KP
+                  @@R_INIT @cstart    0004AH    00000H
+                  @@R_INIT r_main     0004AH    00000H
+                  @@R_INIT r_systeminit
+                                      0004AH    00000H
+                  @@R_INIT r_cg_cgc   0004AH    00000H
+                  @@R_INIT r_cg_cgc_user
+                                      0004AH    00000H
+                  @@R_INIT r_cg_port
+                                      0004AH    00000H
+                  @@R_INIT r_cg_port_user
+                                      0004AH    00000H
+                  @@R_INIT r_cg_intc
+                                      0004AH    00000H
+                  @@R_INIT r_cg_intc_user
+                                      0004AH    00000H
+                  @@R_INIT r_cg_serial
+                                      0004AH    00000H
+                  @@R_INIT r_cg_serial_user
+                                      0004AH    00000H
+                  @@R_INIT r_cg_adc   0004AH    00000H
+                  @@R_INIT r_cg_adc_user
+                                      0004AH    00000H
+                  @@R_INIT r_cg_timer
+                                      0004AH    00000H
+                  @@R_INIT r_cg_timer_user
+                                      0004AH    00000H
+                  @@R_INIT r_cg_wdt   0004AH    00000H
+                  @@R_INIT r_cg_wdt_user
+                                      0004AH    00000H
+                  @@R_INIT r_cg_pclbuz
+                                      0004AH    00000H
+                  @@R_INIT r_cg_pclbuz_user
+                                      0004AH    00000H
+                  @@R_INIT h_com      0004AH    00000H
+                  @@R_INIT h_main     0004AH    00000H
+                  @@R_INIT m_card     0004AH    0001AH
+                  @@R_INIT r_pfdl     00064H    00004H
+                  @@R_INIT m_pfdl     00068H    0000CH
+                  @@R_INIT m_usb      00074H    00006H
+                  @@R_INIT m_test_mode
+                                      0007AH    00000H
+                  @@R_INIT @rom       0007AH    00000H
+* gap *                               0007AH    00046H
+         ?CSEGOB0                     000C0H    00004H  CSEG OPT_BYTE
+         @@CODE                       000C4H    00000H  CSEG BASE
+                  @@CODE   r_main     000C4H    00000H
+                  @@CODE   r_systeminit
+                                      000C4H    00000H
+                  @@CODE   r_cg_cgc   000C4H    00000H
+                  @@CODE   r_cg_cgc_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_port
+                                      000C4H    00000H
+                  @@CODE   r_cg_port_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_intc
+                                      000C4H    00000H
+                  @@CODE   r_cg_intc_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_serial
+                                      000C4H    00000H
+                  @@CODE   r_cg_serial_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_adc   000C4H    00000H
+                  @@CODE   r_cg_adc_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_timer
+                                      000C4H    00000H
+                  @@CODE   r_cg_timer_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_wdt   000C4H    00000H
+                  @@CODE   r_cg_wdt_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_pclbuz
+                                      000C4H    00000H
+                  @@CODE   r_cg_pclbuz_user
+                                      000C4H    00000H
+                  @@CODE   h_com      000C4H    00000H
+                  @@CODE   h_main     000C4H    00000H
+                  @@CODE   m_card     000C4H    00000H
+                  @@CODE   r_pfdl     000C4H    00000H
+                  @@CODE   m_pfdl     000C4H    00000H
+                  @@CODE   m_usb      000C4H    00000H
+                  @@CODE   m_test_mode
+                                      000C4H    00000H
+         ?CSEGSI                      000C4H    0000AH  CSEG
+         ?OCDSTAD                     000CEH    0000AH  CSEG
+         @@LCODE                      000D8H    000ADH  CSEG BASE
+                  @@LCODE  @cstart    000D8H    000ADH
+         @@BASE                       00185H    00352H  CSEG BASE
+                  @@BASE   r_main     00185H    00000H
+                  @@BASE   r_systeminit
+                                      00185H    00000H
+                  @@BASE   r_cg_cgc   00185H    00000H
+                  @@BASE   r_cg_cgc_user
+                                      00185H    00000H
+                  @@BASE   r_cg_port
+                                      00185H    00000H
+                  @@BASE   r_cg_port_user
+                                      00185H    00000H
+                  @@BASE   r_cg_intc
+                                      00185H    00000H
+                  @@BASE   r_cg_intc_user
+                                      00185H    00042H
+                  @@BASE   r_cg_serial
+                                      001C7H    00000H
+                  @@BASE   r_cg_serial_user
+                                      001C7H    001FBH
+                  @@BASE   r_cg_adc   003C2H    00000H
+                  @@BASE   r_cg_adc_user
+                                      003C2H    00002H
+                  @@BASE   r_cg_timer
+                                      003C4H    00000H
+                  @@BASE   r_cg_timer_user
+                                      003C4H    00111H
+                  @@BASE   r_cg_wdt   004D5H    00000H
+                  @@BASE   r_cg_wdt_user
+                                      004D5H    00002H
+                  @@BASE   r_cg_pclbuz
+                                      004D7H    00000H
+                  @@BASE   r_cg_pclbuz_user
+                                      004D7H    00000H
+                  @@BASE   h_com      004D7H    00000H
+                  @@BASE   h_main     004D7H    00000H
+                  @@BASE   m_card     004D7H    00000H
+                  @@BASE   r_pfdl     004D7H    00000H
+                  @@BASE   m_pfdl     004D7H    00000H
+                  @@BASE   m_usb      004D7H    00000H
+                  @@BASE   m_test_mode
+                                      004D7H    00000H
+* gap *                               004D7H    00001H
+         PFDL_COD                     004D8H    00097H  CSEG UNIT64KP
+                  PFDL_COD pfdl       004D8H    00097H
+         @@LCODEL                     0056FH    00060H  CSEG
+                  @@LCODEL @stkinit   0056FH    00044H
+                  @@LCODEL exit       005B3H    0001CH
+* gap *                               005CFH    01A31H
+         @@CNST                       02000H    00018H  CSEG MIRRORP
+                  @@CNST   @cstart    02000H    00000H
+                  @@CNST   r_main     02000H    00000H
+                  @@CNST   r_systeminit
+                                      02000H    00000H
+                  @@CNST   r_cg_cgc   02000H    00000H
+                  @@CNST   r_cg_cgc_user
+                                      02000H    00000H
+                  @@CNST   r_cg_port
+                                      02000H    00000H
+                  @@CNST   r_cg_port_user
+                                      02000H    00000H
+                  @@CNST   r_cg_intc
+                                      02000H    00000H
+                  @@CNST   r_cg_intc_user
+                                      02000H    00000H
+                  @@CNST   r_cg_serial
+                                      02000H    00000H
+                  @@CNST   r_cg_serial_user
+                                      02000H    00000H
+                  @@CNST   r_cg_adc   02000H    00000H
+                  @@CNST   r_cg_adc_user
+                                      02000H    00000H
+                  @@CNST   r_cg_timer
+                                      02000H    00000H
+                  @@CNST   r_cg_timer_user
+                                      02000H    00000H
+                  @@CNST   r_cg_wdt   02000H    00000H
+                  @@CNST   r_cg_wdt_user
+                                      02000H    00000H
+                  @@CNST   r_cg_pclbuz
+                                      02000H    00000H
+                  @@CNST   r_cg_pclbuz_user
+                                      02000H    00000H
+                  @@CNST   h_com      02000H    00000H
+                  @@CNST   h_main     02000H    00000H
+                  @@CNST   m_card     02000H    00016H
+                  @@CNST   r_pfdl     02016H    00000H
+                  @@CNST   m_pfdl     02016H    00000H
+                  @@CNST   m_usb      02016H    00000H
+                  @@CNST   m_test_mode
+                                      02016H    00002H
+         @@CODEL                      02018H    01DC0H  CSEG
+                  @@CODEL  r_main     02018H    00023H
+                  @@CODEL  r_systeminit
+                                      0203BH    0003AH
+                  @@CODEL  r_cg_cgc   02075H    00028H
+                  @@CODEL  r_cg_cgc_user
+                                      0209DH    0000CH
+                  @@CODEL  r_cg_port
+                                      020A9H    0001FH
+                  @@CODEL  r_cg_port_user
+                                      020C8H    00000H
+                  @@CODEL  r_cg_intc
+                                      020C8H    00070H
+                  @@CODEL  r_cg_intc_user
+                                      02138H    00000H
+                  @@CODEL  r_cg_serial
+                                      02138H    003D0H
+                  @@CODEL  r_cg_serial_user
+                                      02508H    00024H
+                  @@CODEL  r_cg_adc   0252CH    00069H
+                  @@CODEL  r_cg_adc_user
+                                      02595H    00000H
+                  @@CODEL  r_cg_timer
+                                      02595H    00153H
+                  @@CODEL  r_cg_timer_user
+                                      026E8H    00000H
+                  @@CODEL  r_cg_wdt   026E8H    00014H
+                  @@CODEL  r_cg_wdt_user
+                                      026FCH    00000H
+                  @@CODEL  r_cg_pclbuz
+                                      026FCH    00018H
+                  @@CODEL  r_cg_pclbuz_user
+                                      02714H    00000H
+                  @@CODEL  h_com      02714H    00425H
+                  @@CODEL  h_main     02B39H    005D8H
+                  @@CODEL  m_card     03111H    00616H
+                  @@CODEL  r_pfdl     03727H    001A5H
+                  @@CODEL  m_pfdl     038CCH    00123H
+                  @@CODEL  m_usb      039EFH    00290H
+                  @@CODEL  m_test_mode
+                                      03C7FH    00159H
+* gap *                               03DD8H    00028H
+         ??OCDROM                     03E00H    00200H  CSEG
+
+  MEMORY=RAM
+  BASE ADDRESS=FF700H   SIZE=00720H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@DATA                       FF700H    001D4H  DSEG BASEP
+                  @@DATA   @cstart    FF700H    000BAH
+                  @@DATA   r_main     FF7BAH    00000H
+                  @@DATA   r_systeminit
+                                      FF7BAH    00000H
+                  @@DATA   r_cg_cgc   FF7BAH    00000H
+                  @@DATA   r_cg_cgc_user
+                                      FF7BAH    00000H
+                  @@DATA   r_cg_port
+                                      FF7BAH    00000H
+                  @@DATA   r_cg_port_user
+                                      FF7BAH    00000H
+                  @@DATA   r_cg_intc
+                                      FF7BAH    00000H
+                  @@DATA   r_cg_intc_user
+                                      FF7BAH    00000H
+                  @@DATA   r_cg_serial
+                                      FF7BAH    0001EH
+                  @@DATA   r_cg_serial_user
+                                      FF7D8H    00000H
+                  @@DATA   r_cg_adc   FF7D8H    00000H
+                  @@DATA   r_cg_adc_user
+                                      FF7D8H    00000H
+                  @@DATA   r_cg_timer
+                                      FF7D8H    00000H
+                  @@DATA   r_cg_timer_user
+                                      FF7D8H    00000H
+                  @@DATA   r_cg_wdt   FF7D8H    00000H
+                  @@DATA   r_cg_wdt_user
+                                      FF7D8H    00000H
+                  @@DATA   r_cg_pclbuz
+                                      FF7D8H    00000H
+                  @@DATA   r_cg_pclbuz_user
+                                      FF7D8H    00000H
+                  @@DATA   h_com      FF7D8H    00042H
+                  @@DATA   h_main     FF81AH    00014H
+                  @@DATA   m_card     FF82EH    0001AH
+                  @@DATA   r_pfdl     FF848H    00002H
+                  @@DATA   m_pfdl     FF84AH    00032H
+                  @@DATA   m_usb      FF87CH    0004CH
+                  @@DATA   m_test_mode
+                                      FF8C8H    0000CH
+                  @@DATA   @rom       FF8D4H    00000H
+         @@INIT                       FF8D4H    00030H  DSEG BASEP
+                  @@INIT   @cstart    FF8D4H    00000H
+                  @@INIT   r_main     FF8D4H    00000H
+                  @@INIT   r_systeminit
+                                      FF8D4H    00000H
+                  @@INIT   r_cg_cgc   FF8D4H    00000H
+                  @@INIT   r_cg_cgc_user
+                                      FF8D4H    00000H
+                  @@INIT   r_cg_port
+                                      FF8D4H    00000H
+                  @@INIT   r_cg_port_user
+                                      FF8D4H    00000H
+                  @@INIT   r_cg_intc
+                                      FF8D4H    00000H
+                  @@INIT   r_cg_intc_user
+                                      FF8D4H    00000H
+                  @@INIT   r_cg_serial
+                                      FF8D4H    00000H
+                  @@INIT   r_cg_serial_user
+                                      FF8D4H    00000H
+                  @@INIT   r_cg_adc   FF8D4H    00000H
+                  @@INIT   r_cg_adc_user
+                                      FF8D4H    00000H
+                  @@INIT   r_cg_timer
+                                      FF8D4H    00000H
+                  @@INIT   r_cg_timer_user
+                                      FF8D4H    00000H
+                  @@INIT   r_cg_wdt   FF8D4H    00000H
+                  @@INIT   r_cg_wdt_user
+                                      FF8D4H    00000H
+                  @@INIT   r_cg_pclbuz
+                                      FF8D4H    00000H
+                  @@INIT   r_cg_pclbuz_user
+                                      FF8D4H    00000H
+                  @@INIT   h_com      FF8D4H    00000H
+                  @@INIT   h_main     FF8D4H    00000H
+                  @@INIT   m_card     FF8D4H    0001AH
+                  @@INIT   r_pfdl     FF8EEH    00004H
+                  @@INIT   m_pfdl     FF8F2H    0000CH
+                  @@INIT   m_usb      FF8FEH    00006H
+                  @@INIT   m_test_mode
+                                      FF904H    00000H
+                  @@INIT   @rom       FF904H    00000H
+         @@INIS                       FF904H    00000H  DSEG UNITP
+                  @@INIS   @cstart    FF904H    00000H
+                  @@INIS   r_main     FF904H    00000H
+                  @@INIS   r_systeminit
+                                      FF904H    00000H
+                  @@INIS   r_cg_cgc   FF904H    00000H
+                  @@INIS   r_cg_cgc_user
+                                      FF904H    00000H
+                  @@INIS   r_cg_port
+                                      FF904H    00000H
+                  @@INIS   r_cg_port_user
+                                      FF904H    00000H
+                  @@INIS   r_cg_intc
+                                      FF904H    00000H
+                  @@INIS   r_cg_intc_user
+                                      FF904H    00000H
+                  @@INIS   r_cg_serial
+                                      FF904H    00000H
+                  @@INIS   r_cg_serial_user
+                                      FF904H    00000H
+                  @@INIS   r_cg_adc   FF904H    00000H
+                  @@INIS   r_cg_adc_user
+                                      FF904H    00000H
+                  @@INIS   r_cg_timer
+                                      FF904H    00000H
+                  @@INIS   r_cg_timer_user
+                                      FF904H    00000H
+                  @@INIS   r_cg_wdt   FF904H    00000H
+                  @@INIS   r_cg_wdt_user
+                                      FF904H    00000H
+                  @@INIS   r_cg_pclbuz
+                                      FF904H    00000H
+                  @@INIS   r_cg_pclbuz_user
+                                      FF904H    00000H
+                  @@INIS   h_com      FF904H    00000H
+                  @@INIS   h_main     FF904H    00000H
+                  @@INIS   m_card     FF904H    00000H
+                  @@INIS   r_pfdl     FF904H    00000H
+                  @@INIS   m_pfdl     FF904H    00000H
+                  @@INIS   m_usb      FF904H    00000H
+                  @@INIS   m_test_mode
+                                      FF904H    00000H
+                  @@INIS   @rom       FF904H    00000H
+         @@DATS                       FF904H    00000H  DSEG UNITP
+                  @@DATS   @cstart    FF904H    00000H
+                  @@DATS   r_main     FF904H    00000H
+                  @@DATS   r_systeminit
+                                      FF904H    00000H
+                  @@DATS   r_cg_cgc   FF904H    00000H
+                  @@DATS   r_cg_cgc_user
+                                      FF904H    00000H
+                  @@DATS   r_cg_port
+                                      FF904H    00000H
+                  @@DATS   r_cg_port_user
+                                      FF904H    00000H
+                  @@DATS   r_cg_intc
+                                      FF904H    00000H
+                  @@DATS   r_cg_intc_user
+                                      FF904H    00000H
+                  @@DATS   r_cg_serial
+                                      FF904H    00000H
+                  @@DATS   r_cg_serial_user
+                                      FF904H    00000H
+                  @@DATS   r_cg_adc   FF904H    00000H
+                  @@DATS   r_cg_adc_user
+                                      FF904H    00000H
+                  @@DATS   r_cg_timer
+                                      FF904H    00000H
+                  @@DATS   r_cg_timer_user
+                                      FF904H    00000H
+                  @@DATS   r_cg_wdt   FF904H    00000H
+                  @@DATS   r_cg_wdt_user
+                                      FF904H    00000H
+                  @@DATS   r_cg_pclbuz
+                                      FF904H    00000H
+                  @@DATS   r_cg_pclbuz_user
+                                      FF904H    00000H
+                  @@DATS   h_com      FF904H    00000H
+                  @@DATS   h_main     FF904H    00000H
+                  @@DATS   m_card     FF904H    00000H
+                  @@DATS   r_pfdl     FF904H    00000H
+                  @@DATS   m_pfdl     FF904H    00000H
+                  @@DATS   m_usb      FF904H    00000H
+                  @@DATS   m_test_mode
+                                      FF904H    00000H
+                  @@DATS   @rom       FF904H    00000H
+         @@INITL                      FF904H    00000H  DSEG UNIT64KP
+                  @@INITL  @cstart    FF904H    00000H
+                  @@INITL  r_main     FF904H    00000H
+                  @@INITL  r_systeminit
+                                      FF904H    00000H
+                  @@INITL  r_cg_cgc   FF904H    00000H
+                  @@INITL  r_cg_cgc_user
+                                      FF904H    00000H
+                  @@INITL  r_cg_port
+                                      FF904H    00000H
+                  @@INITL  r_cg_port_user
+                                      FF904H    00000H
+                  @@INITL  r_cg_intc
+                                      FF904H    00000H
+                  @@INITL  r_cg_intc_user
+                                      FF904H    00000H
+                  @@INITL  r_cg_serial
+                                      FF904H    00000H
+                  @@INITL  r_cg_serial_user
+                                      FF904H    00000H
+                  @@INITL  r_cg_adc   FF904H    00000H
+                  @@INITL  r_cg_adc_user
+                                      FF904H    00000H
+                  @@INITL  r_cg_timer
+                                      FF904H    00000H
+                  @@INITL  r_cg_timer_user
+                                      FF904H    00000H
+                  @@INITL  r_cg_wdt   FF904H    00000H
+                  @@INITL  r_cg_wdt_user
+                                      FF904H    00000H
+                  @@INITL  r_cg_pclbuz
+                                      FF904H    00000H
+                  @@INITL  r_cg_pclbuz_user
+                                      FF904H    00000H
+                  @@INITL  h_com      FF904H    00000H
+                  @@INITL  h_main     FF904H    00000H
+                  @@INITL  m_card     FF904H    00000H
+                  @@INITL  r_pfdl     FF904H    00000H
+                  @@INITL  m_pfdl     FF904H    00000H
+                  @@INITL  m_usb      FF904H    00000H
+                  @@INITL  m_test_mode
+                                      FF904H    00000H
+                  @@INITL  @rom       FF904H    00000H
+         @@DATAL                      FF904H    00000H  DSEG UNIT64KP
+                  @@DATAL  @cstart    FF904H    00000H
+                  @@DATAL  r_main     FF904H    00000H
+                  @@DATAL  r_systeminit
+                                      FF904H    00000H
+                  @@DATAL  r_cg_cgc   FF904H    00000H
+                  @@DATAL  r_cg_cgc_user
+                                      FF904H    00000H
+                  @@DATAL  r_cg_port
+                                      FF904H    00000H
+                  @@DATAL  r_cg_port_user
+                                      FF904H    00000H
+                  @@DATAL  r_cg_intc
+                                      FF904H    00000H
+                  @@DATAL  r_cg_intc_user
+                                      FF904H    00000H
+                  @@DATAL  r_cg_serial
+                                      FF904H    00000H
+                  @@DATAL  r_cg_serial_user
+                                      FF904H    00000H
+                  @@DATAL  r_cg_adc   FF904H    00000H
+                  @@DATAL  r_cg_adc_user
+                                      FF904H    00000H
+                  @@DATAL  r_cg_timer
+                                      FF904H    00000H
+                  @@DATAL  r_cg_timer_user
+                                      FF904H    00000H
+                  @@DATAL  r_cg_wdt   FF904H    00000H
+                  @@DATAL  r_cg_wdt_user
+                                      FF904H    00000H
+                  @@DATAL  r_cg_pclbuz
+                                      FF904H    00000H
+                  @@DATAL  r_cg_pclbuz_user
+                                      FF904H    00000H
+                  @@DATAL  h_com      FF904H    00000H
+                  @@DATAL  h_main     FF904H    00000H
+                  @@DATAL  m_card     FF904H    00000H
+                  @@DATAL  r_pfdl     FF904H    00000H
+                  @@DATAL  m_pfdl     FF904H    00000H
+                  @@DATAL  m_usb      FF904H    00000H
+                  @@DATAL  m_test_mode
+                                      FF904H    00000H
+                  @@DATAL  @rom       FF904H    00000H
+         @@BITS                       FF904H    00000H  BSEG
+                  @@BITS   @cstart    FF904H.0  00000H.0
+                  @@BITS   r_main     FF904H.0  00000H.0
+                  @@BITS   r_systeminit
+                                      FF904H.0  00000H.0
+                  @@BITS   r_cg_cgc   FF904H.0  00000H.0
+                  @@BITS   r_cg_cgc_user
+                                      FF904H.0  00000H.0
+                  @@BITS   r_cg_port
+                                      FF904H.0  00000H.0
+                  @@BITS   r_cg_port_user
+                                      FF904H.0  00000H.0
+                  @@BITS   r_cg_intc
+                                      FF904H.0  00000H.0
+                  @@BITS   r_cg_intc_user
+                                      FF904H.0  00000H.0
+                  @@BITS   r_cg_serial
+                                      FF904H.0  00000H.0
+                  @@BITS   r_cg_serial_user
+                                      FF904H.0  00000H.0
+                  @@BITS   r_cg_adc   FF904H.0  00000H.0
+                  @@BITS   r_cg_adc_user
+                                      FF904H.0  00000H.0
+                  @@BITS   r_cg_timer
+                                      FF904H.0  00000H.0
+                  @@BITS   r_cg_timer_user
+                                      FF904H.0  00000H.0
+                  @@BITS   r_cg_wdt   FF904H.0  00000H.0
+                  @@BITS   r_cg_wdt_user
+                                      FF904H.0  00000H.0
+                  @@BITS   r_cg_pclbuz
+                                      FF904H.0  00000H.0
+                  @@BITS   r_cg_pclbuz_user
+                                      FF904H.0  00000H.0
+                  @@BITS   h_com      FF904H.0  00000H.0
+                  @@BITS   h_main     FF904H.0  00000H.0
+                  @@BITS   m_card     FF904H.0  00000H.0
+                  @@BITS   r_pfdl     FF904H.0  00000H.0
+                  @@BITS   m_pfdl     FF904H.0  00000H.0
+                  @@BITS   m_usb      FF904H.0  00000H.0
+                  @@BITS   m_test_mode
+                                      FF904H.0  00000H.0
+* gap *                               FF904H    0051CH
+
+  MEMORY=RAM_SADDR
+  BASE ADDRESS=FFE20H   SIZE=000C0H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+* gap *                               FFE20H    000B4H
+         @@SEGREG                     FFED4H    00004H  DSEG AT
+                  @@SEGREG @SEGREG    FFED4H    00004H
+         @@RTARG0                     FFED8H    00008H  DSEG AT
+                  @@RTARG0 @RTARG0    FFED8H    00008H
+
+
+ Target chip : R5F100AA
+ Device file : V1.12
+
